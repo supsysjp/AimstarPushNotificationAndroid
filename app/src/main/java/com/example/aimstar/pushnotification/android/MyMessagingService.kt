@@ -17,7 +17,7 @@ class MyMessagingService : FirebaseMessagingService() {
         super.onNewToken(token)
         Aimstar.registerToken(
             context = applicationContext,
-            aimstarId = AIMSTAR_ID,
+            customerId = CUSTOMER_ID,
             fcmToken = token,
         )
     }

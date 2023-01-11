@@ -9,7 +9,7 @@ import com.google.firebase.messaging.FirebaseMessaging
 import jp.co.aimstar.push.android.Aimstar
 
 
-internal const val AIMSTAR_ID = "my_sample_aimstar_id"
+internal const val CUSTOMER_ID = "my_sample_customer_id"
 private const val API_KEY = ""
 
 class MainActivity : AppCompatActivity() {
@@ -18,10 +18,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         Aimstar.init(
             context = this@MainActivity,
-            apiKey = API_KEY
+            apiKey = API_KEY,
+            tenantId = "tenantId"
         )
 
-        findViewById<TextView>(R.id.aimstarId).text = "aimstarid: $AIMSTAR_ID"
+        findViewById<TextView>(R.id.aimstarId).text = "customer id: $CUSTOMER_ID"
         handleIntent(intent)
         findViewById<Button>(R.id.registerButton).apply {
             setOnClickListener {
@@ -46,7 +47,7 @@ class MainActivity : AppCompatActivity() {
                     val token = it.result
                     Aimstar.registerToken(
                         context = this@MainActivity,
-                        aimstarId = AIMSTAR_ID,
+                        customerId = CUSTOMER_ID,
                         fcmToken = token,
                     )
                 }
