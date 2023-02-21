@@ -11,7 +11,7 @@ TargetSDK - 31
 # SDKのInterfaceについて
 ## Aimstar class
 objectクラスです。
-### init(Context, ApiKey)
+### init(Context, ApiKey, TenantId)
 アプリ起動時に呼び出してください。
 ### registerToken(Context, AimstarId, FcmToken)
 アプリ起動時などでFcmTokenを取得して呼び出してください。
