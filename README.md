@@ -8,6 +8,16 @@ TargetSDK - 31
 - aimstarのPush通知を受信するために必要な情報を登録する
 - Push通知から起動した場合のログ送信
 
+## 用語
+
+| 用語 | 説明 |
+|---|---|
+| API Key | AimstarMessagingを利用するために必要なAPIキーで、Aimstar側で事前にアプリ開発者に発行されます。 |
+| Tenant ID | AimstarMessagingを利用するために必要なテナントIDで、Aimstar側で事前にアプリ開発者に発行されます。 |
+| Aimstar ID | アプリ開発者がユーザーを識別するIDで、アプリ開発者が独自に発行、生成、または利用します。 |
+| 端末の識別ID | アプリを端末ごと(インストールごと)に識別するIDです。アプリ起動後の初回のセットアップ時にUUIDを永続化して使います。 |
+| FCMトークン | Firebaseがプッシュ通知を送信するために必要なIDで、Firebase側で発行・更新され、アプリ側で取得できます。 |
+
 # SDKのInterfaceについて
 ## Aimstar class
 objectクラスです。
