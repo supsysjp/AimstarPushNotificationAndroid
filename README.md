@@ -14,13 +14,18 @@ objectクラスです。
 ### init(Context, ApiKey, TenantId)
 アプリ起動時に呼び出してください。
 ### registerToken(Context, AimstarId, FcmToken)
-アプリ起動時などでFcmTokenを取得して呼び出してください。
+アプリ起動時など、ログインが完了したタイミングでFcmTokenを取得して呼び出してください。
+ここで配信基盤のバックエンドにAimstarId、FcmTokenが連携され、配信対象になります
+
 ログインが完了してないなどでAimstarIdが未確定の場合は呼び出す必要はありません。
 
 ### logout(Context)
 ログアウトしたときなど、AimstarIdが消失した場合に呼び出してください。
+この処理を呼び出すことでPush通知の配信対象外になります
+
 ### sendLog(Context, NotificationId, TargetGroupId)
 AimstarのPush通知から起動した際にPayloadに含まれるNotificationId,TargetGroupIdを使用して呼び出してください。
+ログをaimstarに集積することで、Push通知の効果検証を行うことができます
 
 # アプリ側で実装する必要がある機能
 ### FirebaseMessagingServiceを継承したService
