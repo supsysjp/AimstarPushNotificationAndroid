@@ -30,7 +30,7 @@ objectクラスです。
 ログインが完了してないなどでAimstarIdが未確定の場合は呼び出す必要はありません。
 
 ### logout(Context)
-ログアウトしたときなど、AimstarIdが消失した場合に呼び出してください。
+ログアウトしたときや、匿名ユーザーによる使用など、アプリにおいてAimstarIdを特定できない状態となった場合
 この処理を呼び出すことでPush通知の配信対象外になります
 
 ### sendLog(Context, NotificationId, TargetGroupId)
