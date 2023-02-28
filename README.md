@@ -8,6 +8,8 @@ TargetSDK - 31
 - aimstarのPush通知を受信するために必要な情報を登録する
 - Push通知から起動した場合のログ送信
 
+# SDKのInterfaceについて
+
 ## 用語
 
 | 用語 | 説明 |
@@ -18,7 +20,7 @@ TargetSDK - 31
 | 端末の識別ID | アプリを端末ごと(インストールごと)に識別するIDです。アプリ起動後の初回のセットアップ時にUUIDを永続化して使います。 |
 | FCMトークン | Firebaseがプッシュ通知を送信するために必要なIDで、Firebase側で発行・更新され、アプリ側で取得できます。 |
 
-# SDKのInterfaceについて
+
 ## Aimstar class
 objectクラスです。
 ### init(Context, ApiKey, TenantId)
@@ -30,8 +32,8 @@ objectクラスです。
 ログインが完了してないなどでAimstarIdが未確定の場合は呼び出す必要はありません。
 
 ### logout(Context)
-ログアウトしたときや、匿名ユーザーによる使用など、アプリにおいてAimstarIdを特定できない状態となった場合
-この処理を呼び出すことでPush通知の配信対象外になります
+ログアウトしたときや、匿名ユーザーによる使用など、アプリにおいてAimstarIdを特定できない状態となった場合に呼び出してください。
+この処理を呼び出すことでPush通知の配信対象外になります。
 
 ### sendLog(Context, NotificationId, TargetGroupId)
 AimstarのPush通知から起動した際にPayloadに含まれるNotificationId,TargetGroupIdを使用して呼び出してください。
