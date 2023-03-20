@@ -34,7 +34,7 @@ objectクラスです。
 この処理を呼び出すことでPush通知の配信対象外になります
 
 また、通信などの影響でログアウト処理が完了しなかった場合は、以下のようにしてエラーハンドリングすることが出来ます
-```
+```kotlin
   try {
       Aimstar.logout(this@MainActivity)
   }catch (e: AimstarException) {
