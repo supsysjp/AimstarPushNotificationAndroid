@@ -2,11 +2,13 @@ package com.example.aimstar.pushnotification.android
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.messaging.FirebaseMessaging
 import jp.co.aimstar.push.android.Aimstar
+import jp.co.aimstar.push.android.data.http.AimstarException
 
 
 internal const val CUSTOMER_ID = "my_sample_customer_id"
@@ -31,7 +33,18 @@ class MainActivity : AppCompatActivity() {
         }
         findViewById<Button>(R.id.logoutButton).apply {
             setOnClickListener {
-                Aimstar.logout(this@MainActivity)
+                try {
+                    Aimstar.logout(this@MainActivity)
+                }catch (e: AimstarException) {
+                    // retry等, error handle
+                    Log.e("Error", e.message, e)
+                    when(e) {
+                        is AimstarException.Precondition -> TODO()
+                        is AimstarException.ClientError -> TODO()
+                        is AimstarException.ServerError -> TODO()
+                        is AimstarException.NetworkError -> TODO()
+                    }
+                }
                 FirebaseMessaging.getInstance().deleteToken().addOnCompleteListener {
                 }
             }
