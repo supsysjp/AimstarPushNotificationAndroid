@@ -46,7 +46,11 @@ objectクラスです。
 logoutリクエストが失敗したままですと、想定していない通知が届いてしまう場合があります
 そういったケースを防ぐために、もしリクエストが失敗した際にリクエストをリトライしたい場合等に使用することができます
 
-
+また、アプリ側でもログアウト時にfcm tokenを以下のような処理で失効させておくことができます
+これにより、もしlogout時にリクエストが失敗した場合においてもPush通知の配信対象外にすることができます
+```kotlin
+FirebaseMessaging.getInstance().deleteToken()
+```
 
 
 ### sendLog(Context, NotificationId, TargetGroupId)  
