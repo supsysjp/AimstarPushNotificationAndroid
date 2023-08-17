@@ -4,6 +4,9 @@ MinSDK - 23
 CompileSDK - 31  
 TargetSDK - 31  
 
+## 導入方法
+このリポジトリの app/libs/AimsterSDK.aarをダウンロードし、aarファイルをプロジェクトに含めて実装を進めてください。
+
 ## SDKで提供する機能について
 - aimstarのPush通知を受信するために必要な情報を登録する
 - Push通知から起動した場合のログ送信
