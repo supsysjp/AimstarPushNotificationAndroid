@@ -10,9 +10,11 @@ import com.google.firebase.messaging.FirebaseMessaging
 import jp.co.aimstar.push.android.Aimstar
 import jp.co.aimstar.push.android.data.http.AimstarException
 
-
-internal const val CUSTOMER_ID = "my_sample_customer_id"
 private const val API_KEY = ""
+private const val TENANT_ID = "your_tenant_id"
+
+internal const val CUSTOMER_ID = "your_customer_id"
+internal const val TARGET_APP_ID = "your_target_app_id"
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         Aimstar.init(
             context = this@MainActivity,
             apiKey = API_KEY,
-            tenantId = "tenantId"
+            tenantId = TENANT_ID,
         )
 
         findViewById<TextView>(R.id.aimstarId).text = "customer id: $CUSTOMER_ID"
@@ -62,6 +64,7 @@ class MainActivity : AppCompatActivity() {
                         context = this@MainActivity,
                         customerId = CUSTOMER_ID,
                         fcmToken = token,
+                        targetAppId = TARGET_APP_ID,
                     )
                 }
             }

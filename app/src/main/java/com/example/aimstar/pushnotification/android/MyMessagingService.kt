@@ -54,7 +54,7 @@ class MyMessagingService : FirebaseMessagingService() {
             intent,
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE,
         )
-        val notificationBuilder = NotificationCompat.Builder(this, NotificationChannelId)
+        val notificationBuilder = NotificationCompat.Builder(this, NOTIFICATION_CHANNEL_ID)
             .setContentTitle(notification.title)
             .setContentText(notification.body)
             .setAutoCancel(true)
@@ -71,8 +71,8 @@ class MyMessagingService : FirebaseMessagingService() {
             val notificationManager = context.getSystemService(NotificationManager::class.java)
             notificationManager?.createNotificationChannel(
                 NotificationChannel(
-                    NotificationChannelId,
-                    NotificationChannelName,
+                    NOTIFICATION_CHANNEL_ID,
+                    NOTIFICATION_CHANNEL_NAME,
                     NotificationManager.IMPORTANCE_DEFAULT,
                 )
             )
@@ -80,7 +80,7 @@ class MyMessagingService : FirebaseMessagingService() {
     }
 
     companion object {
-        private const val NotificationChannelId = "my_notification_channel"
-        private const val NotificationChannelName = "通知"
+        private const val NOTIFICATION_CHANNEL_ID = "my_notification_channel"
+        private const val NOTIFICATION_CHANNEL_NAME = "通知"
     }
 }
